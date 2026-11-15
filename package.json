@@ -2,13 +2,11 @@
     "name": "traid",
     "version": "0.1.0",
     "private": true,
-    "description": "TRAID — Plataforma web educativa en español para aprender trading, inversiones y mercados financieros. Sin operaciones reales.",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint",
-        "check": "tsc --noEmit"
+        "lint": "eslint"
     },
     "dependencies": {
         "@supabase/ssr": "^0.12.7",
