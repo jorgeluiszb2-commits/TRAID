@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { SAMPLE_COURSES, findCourse } from '@/data/courses';
+import { getQuizFor } from '@/data/quizzes';
+import { QuizCard } from '@/app/cursos/QuizCard';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -60,6 +62,8 @@ export default async function CourseDetailPage({ params }: PageProps) {
           <p style={{ color: 'var(--muted)', fontSize: '.85rem', marginTop: '.5rem' }}>
             Duración estimada del curso: {totalMinutes} minutos de contenido.
           </p>
+
+          <QuizCard questions={getQuizFor(course.slug)} courseTitle={course.title} />
 
           <h2 style={{ marginTop: '1.5rem' }}>Requisitos</h2>
           <ul className="check-list">

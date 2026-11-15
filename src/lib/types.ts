@@ -10,6 +10,16 @@ export type CourseCategory =
   | 'Criptomonedas'
   | 'Psicología';
 
+/** Pregunta de cuestionario de un curso. */
+export interface QuizQuestion {
+  question: string;
+  options: string[];
+  /** Índice de la opción correcta en `options`. */
+  correctIndex: number;
+  /** Explicación que se muestra tras responder. */
+  explanation: string;
+}
+
 export interface CourseLesson {
   order: number;
   title: string;

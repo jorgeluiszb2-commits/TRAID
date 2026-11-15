@@ -178,6 +178,38 @@ body {
 .site-footer { border-top: 1px solid var(--border-soft); background: #080d1a; padding: 1.5rem 0 2rem; color: var(--muted); font-size: 0.83rem; }
 .site-footer strong { color: var(--text); }
 
+/* ── Cuestionario ──────────────────────────────────────── */
+.quiz-card { margin-top: 2rem; }
+.quiz-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.quiz-intro { color: var(--muted); font-size: .9rem; margin: .4rem 0 1.2rem; max-width: 70ch; }
+.quiz-q { border: none; padding: 0; margin-bottom: 1.1rem; }
+.quiz-q legend { padding: 0; margin-bottom: .5rem; color: var(--text); }
+.quiz-options { display: grid; gap: .4rem; }
+.quiz-option {
+  display: flex; align-items: flex-start; gap: .6rem; text-align: left;
+  background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: 10px;
+  color: var(--text); padding: .55rem .7rem; font-size: .92rem; cursor: pointer;
+}
+.quiz-option:hover:not(:disabled) { border-color: var(--accent); }
+.quiz-option:disabled { cursor: default; opacity: .85; }
+.quiz-option.is-correct { border-color: var(--green); background: rgba(31, 206, 141, .09); }
+.quiz-option.is-wrong { border-color: var(--red); background: rgba(255, 107, 129, .09); }
+.quiz-option-letter {
+  display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; flex: none;
+  border: 1px solid var(--border); border-radius: 6px; font-size: .75rem; font-weight: 800; color: var(--muted);
+}
+.quiz-option.is-correct .quiz-option-letter { border-color: var(--green); color: var(--green); }
+.quiz-option.is-wrong .quiz-option-letter { border-color: var(--red); color: var(--red); }
+.quiz-explanation {
+  margin-top: .5rem; font-size: .86rem; color: #ffe17a;
+  background: var(--accent-soft); border: 1px solid rgba(240,185,11,.35);
+  border-radius: 9px; padding: .5rem .7rem;
+}
+.quiz-result {
+  margin-top: 1rem; padding: .7rem .9rem; border-radius: 10px;
+  border: 1px solid var(--border); color: var(--text);
+}
+
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; }
