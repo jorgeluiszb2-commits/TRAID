@@ -19,8 +19,8 @@ Next.js (App Router) · TypeScript estricto · React 19 · Supabase (datos/auth)
 
 ## Estructura
 ```
-app/                  # rutas (App Router)
-  globals.css         # sistema de diseño (vigilar tokens CSS)
+src/app/              # rutas (App Router)
+  globals.css         # sistema de diseño (Tailwind v4 + tokens propios)
   layout.tsx          # cabecera, aviso permanente, pie legal
   page.tsx            # inicio
   cursos/             # catálogo (page) + [slug]/page.tsx (detalle)

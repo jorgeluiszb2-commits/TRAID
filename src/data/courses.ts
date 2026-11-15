@@ -1,4 +1,4 @@
-import type { Course } from '@/src/lib/types';
+﻿import type { Course } from '@/lib/types';
 
 /**
  * Catálogo de muestra de TRAID.
@@ -97,7 +97,7 @@ export const SAMPLE_COURSES: Course[] = [
       { order: 1, title: 'Qué es la blockchain y por qué importa', minutes: 20 },
       { order: 2, title: 'Bitcoin: escasez, red y halving explicados', minutes: 25 },
       { order: 3, title: 'Altcoins, proyectos y señales de humo', minutes: 20 },
-      { order: 4, title: 'Custodía y claves: lo único que de verdad posees', minutes: 25 },
+      { order: 4, title: 'Custodia y claves: lo único que de verdad posees', minutes: 25 },
       { order: 5, title: 'Estafas habituales y cómo desconfiar bien', minutes: 20 },
     ],
     requirements: ['Ninguno.'],

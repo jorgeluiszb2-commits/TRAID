@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Crear cuenta (próximamente)',
@@ -20,7 +21,7 @@ export default function RegisterPage() {
         <div className="card">
           <h2>Mientras tanto</h2>
           <p style={{ color: 'var(--muted)' }}>
-            Explora el <a href="/cursos" style={{ color: 'var(--accent)' }}>catálogo de cursos</a> de
+            Explora el <Link href="/cursos" style={{ color: 'var(--accent)' }}>catálogo de cursos</Link> de
             ejemplo. No necesitas cuenta para leerlo.
           </p>
         </div>

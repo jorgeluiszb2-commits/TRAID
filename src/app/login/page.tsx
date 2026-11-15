@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Iniciar sesión (próximamente)',
@@ -19,7 +20,7 @@ export default function LoginPage() {
         <div className="card">
           <h2>¿Aún no hay cuenta?</h2>
           <p style={{ color: 'var(--muted)' }}>
-            Mira el catálogo de <a href="/cursos" style={{ color: 'var(--accent)' }}>cursos</a>.
+            Mira el catálogo de <Link href="/cursos" style={{ color: 'var(--accent)' }}>cursos</Link>.
             Cuando se abran las inscripciones, podrás crear una cuenta y seguir tu progreso.
           </p>
         </div>

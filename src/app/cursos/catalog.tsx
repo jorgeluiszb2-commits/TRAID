@@ -1,9 +1,9 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
-import { SAMPLE_COURSES } from '@/src/data/courses';
-import type { CourseCategory, CourseLevel } from '@/src/lib/types';
+import { SAMPLE_COURSES } from '@/data/courses';
+import type { CourseCategory, CourseLevel } from '@/lib/types';
 
 const LEVELS: CourseLevel[] = ['Principiante', 'Intermedio', 'Avanzado'];
 const CATEGORIES: CourseCategory[] = [

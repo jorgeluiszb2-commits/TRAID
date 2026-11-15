@@ -3,13 +3,14 @@ import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  icons: { icon: '/favicon.svg' },
   title: {
     default: 'TRAID — Aprende trading e inversión con seguridad',
     template: '%s · TRAID',
   },
   description:
     'TRAID es una plataforma educativa en español para aprender trading, inversión y mercados financieros: cursos, guías, ejercicios y un simulador de dinero ficticio. No ejecuta operaciones reales.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
 };
 
 export const viewport: Viewport = {
@@ -67,7 +68,7 @@ export default function RootLayout({
               Cualquier simulación de mercado usa datos de prueba y no predice resultados.
             </p>
             <p style={{ marginTop: '.5rem' }}>
-              © {new Date().getFullYear()} TRAID · Plataforma educativa de mercados financieros.
+              © 2026 TRAID · Plataforma educativa de mercados financieros.
             </p>
           </div>
         </footer>

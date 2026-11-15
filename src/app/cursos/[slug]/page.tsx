@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { SAMPLE_COURSES, findCourse } from '@/src/data/courses';
+import { SAMPLE_COURSES, findCourse } from '@/data/courses';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -11,7 +11,7 @@ export function generateStaticParams() {
   return SAMPLE_COURSES.map((course) => ({ slug: course.slug }));
 }
 
-export const dynamicParams = false;
+// Nota: sin `dynamicParams` — `cacheComponents` del scaffold de main no lo admite.
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

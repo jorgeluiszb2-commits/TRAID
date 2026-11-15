@@ -3,7 +3,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 /**
  * Cliente de Supabase para el navegador (componentes cliente).
  *
- * Solo usa la clave PUBLICABLE (o la anon en proyectos legacy).
+ * Solo usa la clave PÚBLICA (publishable o anon en proyectos legacy).
  * Nunca metas aquí claves secretas / service_role.
  *
  * Devuelve `null` si el proyecto aún no está configurado: la interfaz
@@ -11,18 +11,21 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
  */
 export function createBrowserSupabase(): SupabaseClient | null {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  const publicKey =
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  if (!url || !publishableKey) {
+  if (!url || !publicKey) {
     return null;
   }
-  return createClient(url, publishableKey);
+  return createClient(url, publicKey);
 }
 
 /** true cuando el proyecto tiene las variables públicas mínimas definidas. */
 export function isSupabaseConfigured(): boolean {
   return Boolean(
     process.env.NEXT_PUBLIC_SUPABASE_URL &&
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+      (process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
   );
 }
