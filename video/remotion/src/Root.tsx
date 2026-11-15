@@ -7,6 +7,9 @@ const classes = [
   { id: "Clase3", title: "TRAID - Clase 3", subtitle: "Ordenes y cartera simulada", audio: "audio/clase3.wav" },
   { id: "Clase4", title: "TRAID - Clase 4", subtitle: "Analisis tecnico basico", audio: "audio/clase4.wav" },
   { id: "Clase5", title: "TRAID - Clase 5", subtitle: "Psicologia y control del riesgo", audio: "audio/clase5.wav" },
+  { id: "Clase6", title: "TRAID - Clase 6", subtitle: "Diversificacion y correlacion", audio: "audio/clase6.wav" },
+  { id: "Clase7", title: "TRAID - Clase 7", subtitle: "Volumen y liquidez", audio: "audio/clase7.wav" },
+  { id: "Clase8", title: "TRAID - Clase 8", subtitle: "Buenas practicas y cierre", audio: "audio/clase8.wav" },
 ];
 
 export const RemotionRoot = () => {

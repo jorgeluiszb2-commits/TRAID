@@ -1,0 +1,1 @@
+﻿La octava clase cierra el curso con un repaso de buenas practicas: plan de trading, diario de operaciones y disciplina. El simulador de TRAID te permite practicar sin dinero real.
