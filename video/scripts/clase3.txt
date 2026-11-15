@@ -1,0 +1,1 @@
+La tercera clase explica como funcionan las ordenes de compra y venta en un simulador. Veremos ordenes de mercado y limite, comisiones ficticias y como se calcula el valor de la cartera. Todo es simulado y no ejecuta operaciones reales.
