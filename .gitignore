@@ -1,0 +1,21 @@
+# Dependencias
+/node_modules
+
+# Build de Next.js
+/.next/
+/out/
+next-env.d.ts
+
+# Entorno y secretos — NUNCA subir archivos de entorno reales
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Logs y sistema
+*.log
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
