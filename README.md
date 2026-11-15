@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TRAID
 
-## Getting Started
+**TRAID es una herramienta educativa. No ejecuta operaciones reales ni ofrece asesoría financiera personalizada.**
 
-First, run the development server:
+Plataforma educativa en español para aprender trading, inversión y mercados financieros: cursos, guías, ejercicios, un simulador con dinero ficticio y un tutor de IA (futura integración). Sin dinero real, sin conexiones a exchanges ni wallets, sin promesas de rentabilidad.
+
+---
+
+## Requisitos
+
+- Node.js ≥ 20.9 (recomendado ≥ 22) y npm.
+- Opcional: proyecto en [Supabase](https://supabase.com/) para autenticación y datos (la app arranca sin él, con funciones limitadas).
+
+## Puesta en marcha
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # rellena las variables cuando tengas Supabase
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Verificaciones
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run check   # tsc --noEmit (TypeScript estricto)
+npm run lint    # ESLint (config de Next, core-web-vitals)
+npm run build   # build de producción de Next.js
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variables de entorno
 
-## Learn More
+Copia `.env.example` a `.env.local`. **Nunca** subas `.env.local` ni compartas valores reales.
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Uso | Notas |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | navegador y servidor | URL pública del proyecto |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | navegador y servidor | Clave publicable (o `NEXT_PUBLIC_SUPABASE_ANON_KEY` en proyectos legacy) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | alternativa legacy | Misma naturaleza que la publicable |
+| `SUPABASE_SERVICE_ROLE_KEY` | solo servidor | Nunca en el navegador ni en `NEXT_PUBLIC_*` |
+| `NEXT_PUBLIC_SITE_URL` | metadatos/enlaces | `http://localhost:3000` en local |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Si faltan las variables de Supabase, la app funciona igualmente: las páginas de cuenta muestran «próximamente» y el catálogo usa datos de ejemplo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Configurar Supabase (cuando esté disponible)
 
-## Deploy on Vercel
+1. Crea un proyecto en Supabase.
+2. Project Settings → API: copia la URL y la clave **publishable** (o **anon** en legacy); la **service_role** solo para servidor.
+3. Define las variables en `.env.local` y en el panel de **Vercel** → Environment Variables (Production y Preview).
+4. Próximamente: migraciones SQL versionadas en `supabase/migrations/` (perfil, roles, cursos, inscripciones, progreso, simulador) con **Row Level Security** desde la primera tabla, ejecutables por el propietario con la CLI de Supabase o desde el editor SQL.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Desplegar en Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Importa el repositorio desde la cuenta del propietario.
+2. Framework: Next.js (detección automática).
+3. Project → Settings → Environment Variables: mismas variables que `.env.local`.
+4. Cada push a rama genera un *preview deployment*; la fusión en `main` alimenta producción. Los despliegues y variables los autoriza el propietario.
+
+Nada de este proyecto maneja dinero real.
+
+## Estructura
+
+Ver `AGENTS.md`. En resumen:
+
+```
+src/app/                  # rutas (App Router)
+  globals.css             # sistema de diseño (Tailwind v4 + tokens propios)
+  layout.tsx              # aviso educativo permanente, cabecera, pie legal
+  page.tsx                # inicio
+  cursos/                 # catálogo (búsqueda/filtros) + [slug]/ detalle
+  simulador, registro, login/   # páginas informativas
+src/lib/                  # tipos y acceso a datos (Supabase degradante)
+src/data/                 # datos de ejemplo claramente marcados
+```
+
+## Estado y hoja de ruta
+
+**Entrega 1:** scaffold Next.js + TypeScript estricto, sitio público (inicio, catálogo, detalle de curso, páginas informativas), cliente Supabase degradante, aviso educativo permanente, accesibilidad básica.
+
+**Siguientes entregas:** autenticación con Supabase Auth (registro/login/recuperación), migraciones y RLS, área del estudiante, área del profesor, cuestionarios y progreso real, simulador de dinero ficticio, tutor de IA tras la decisión de proveedor del propietario.
+
+## Límites y avisos
+
+- TRAID no ejecuta operaciones reales ni se conecta a exchanges, brokers, wallets ni bancos.
+- No custodia dinero ni acepta depósitos o retiros.
+- No promete ganancias ni presenta ninguna inversión como segura.
+- Los precios de ejemplo del futuro simulador serán **datos de prueba**, no del mercado real.
+- Material educativo; no es asesoría financiera personalizada.
