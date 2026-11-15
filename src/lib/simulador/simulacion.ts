@@ -1,5 +1,5 @@
 import type { Asset } from "./activos";
-import type { PricePoint, Position, SimulationSnapshot, TradeRecord, TradeSide } from "./tipos";
+import type { PricePoint, Position, SimulationSnapshot, TradeRecord } from "./tipos";
 import { ASSETS, DEFAULT_CONFIG } from "./activos";
 
 type Config = typeof DEFAULT_CONFIG;
